@@ -7,8 +7,7 @@ Blinker LedB(12, 2);
 
 void setup()
 {
-    LedA.begin();
-    LedB.begin();
+    
 }
 
 void loop()

@@ -15,7 +15,7 @@ public:
     Blinker(int pin, int hz);
     ~Blinker();
     void setTime(unsigned long tSys);
-    void begin(int ledPin = 13);
+    void begin(int ledPin);
 
 private:
     int ledPin;

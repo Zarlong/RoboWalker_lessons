@@ -7,6 +7,7 @@ Blinker::Blinker()
   tSys = 0;
   tPre = 0;
   ledFlag = true;
+  begin(ledPin);
 }
 
 Blinker::Blinker(int pin, int hz)
@@ -16,6 +17,7 @@ Blinker::Blinker(int pin, int hz)
   tSys = 0;
   tPre = 0;
   ledFlag = true;
+  begin(ledPin);
 }
 
 Blinker::~Blinker() {}
