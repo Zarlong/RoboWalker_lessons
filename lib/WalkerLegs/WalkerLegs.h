@@ -20,13 +20,13 @@ class WalkerLegs
     //деструктор
     ~WalkerLegs();
 
-    void forwardSlow(int steps = 1) 
-    void backwardSlow(int steps = 1) 
-    void stopSlow()
-    void turnLeft(int angTurn = 36)
-    void turnRight(int angTurn = 36)
-    void courseDevLeft(int angTurn = 36)
-    void courseDevRight(int angTurn = 36)
+    void forwardSlow(int steps = 1) ;
+    void backwardSlow(int steps = 1) ;
+    void stopSlow();
+    void turnLeft(int angTurn = 36);
+    void turnRight(int angTurn = 36);
+    void courseDevLeft(int angTurn = 36);
+    void courseDevRight(int angTurn = 36);
 
     private:
     //члены класса
@@ -56,10 +56,10 @@ void begin(int first)
 
     //методы класса
     void begin(int pin = 7);
-    void debugPhase(bool debugPhase)
-    void sweepVer(char dirSweep)
-    void balanceVer()
-    void sweepHor(char dirSweep)
-    void balanceHor()
+    void debugPhase(bool debugPhase);
+    void sweepVer(char dirSweep);
+    void balanceVer();
+    void sweepHor(char dirSweep);
+    void balanceHor();
 };
 #endif
