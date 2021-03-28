@@ -56,10 +56,10 @@ void begin(int first)
 
     //методы класса
     void begin(int pin = 7);
-    void DebugPhase(bool debugPhase)
-    void SweepVer(char dirSweep)
-    void BalanceVer()
-    void SweepHor(char dirSweep)
-    void BalanceHor()
+    void debugPhase(bool debugPhase)
+    void sweepVer(char dirSweep)
+    void balanceVer()
+    void sweepHor(char dirSweep)
+    void balanceHor()
 };
 #endif
