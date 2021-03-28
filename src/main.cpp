@@ -1,7 +1,11 @@
 #include <Arduino.h>
+#include "WalkerLegs.h"
+
+WalkerLegs hutOnClickenLegs(87, 89, 86, 82);
 
 void setup() {
-  // put your setup code here, to run once:
+  hutOnClickenLegs.begin();
+  hutOnClickenLegs.setDelays(10, 1500);
 }
 
 void loop() {
