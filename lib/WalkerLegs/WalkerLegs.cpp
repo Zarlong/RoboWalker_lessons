@@ -61,10 +61,10 @@ if (dirSweep == 'r') {
     }
     }
 }
-DebugPhase(debug);
+debugPhase(debug);
 }
 
-void WalkerLegs::BalanceVer() {
+void WalkerLegs::balanceVer() {
 if (angleVer > 90) {
     for (angleVer; angleVer >= 90; --angleVer) {
     for (int j = 1; j < servos; j += 2) {
@@ -84,7 +84,7 @@ else if (angleVer < 90) {
     }
     }
 }
-DebugPhase(debug);
+debugPhase(debug);
 }
 
 void WalkerLegs::sweepHor(char dirSweep) {
@@ -116,9 +116,9 @@ if (dirSweep == 'r') {
     }
     }
 }
-DebugPhase(debug);
+debugPhase(debug);
 }
-void WalkerLegs::BalanceHor() {
+void WalkerLegs::balanceHor() {
 if (angleHor > 90) {
     for (angleHor; angleHor >= 90; --angleHor) {
     for (int j = 0; j < servos; j += 2) {
@@ -137,40 +137,40 @@ if (angleHor > 90) {
     }
     }
 }
-DebugPhase(debug);
+debugPhase(debug);
 }
 void forwardSlow(int steps = 1) {
 directionFlag = 'f';
 for (int i = 0; i < steps; ++i) {
-    SweepHor('l');
-    SweepVer('l');
-    BalanceHor();
-    SweepHor('r');
-    SweepVer('r');
-    BalanceHor();
+    sweepHor('l');
+    sweepVer('l');
+    balanceHor();
+    sweepHor('r');
+    sweepVer('r');
+    balanceHor();
 }
 }
 void backwardSlow(int steps = 1) {
 directionFlag = 'b';
 for (int i = 0; i < steps; ++i) {
-    SweepHor('r');
-    SweepVer('l');
-    BalanceHor();
-    SweepHor('l');
-    SweepVer('r');
-    BalanceHor();
+    sweepHor('r');
+    sweepVer('l');
+    balanceHor();
+    sweepHor('l');
+    sweepVer('r');
+    balanceHor();
 }
 }
 void stopSlow() {
   if (directionFlag == 'f') {
-    SweepHor('l');
-    BalanceVer();
-    BalanceHor();
+    sweepHor('l');
+    balanceVer();
+    balanceHor();
   }
   if (directionFlag == 'b') {
-    SweepHor('r');
-    BalanceVer();
-    BalanceHor();
+    sweepHor('r');
+    balanceVer();
+    balanceHor();
   }
 }
 void TurnLeft(int angTurn = 36) {
@@ -204,7 +204,7 @@ void TurnLeft(int angTurn = 36) {
     servoLegs[3].write(servoAngle[3]);
     delay(rate);
   }
-  BalanceHor();
+  balanceHor();
 
   //четвертая  фаза
   sweepHor('r');
@@ -212,20 +212,20 @@ void TurnLeft(int angTurn = 36) {
     servoLegs[1].write(servoAngle[1]);
     delay(rate);
   }
-  BalanceHor();
+  balanceHor();
 }
 void TurnRight(int angTurn = 36) {
 
   //первая фаза
-  SweepHor('r');
+  sweepHor('r');
   for (servoAngle[3]; servoAngle[3] >= servoCenterConst[3] - angTurn; --servoAngle[3]) {
     servoLegs[3].write(servoAngle[3]);
     delay(rate);
   }
-  BalanceHor();
+  balanceHor();
 
   //вторая фаза
-  SweepHor('l');
+  sweepHor('l');
   for (servoAngle[1]; servoAngle[1] >= servoCenterConst[1] - angTurn; --servoAngle[1]) {
 
     servoAngle[3] += 1;
@@ -234,10 +234,10 @@ void TurnRight(int angTurn = 36) {
     servoLegs[3].write(servoAngle[3]);
     delay(rate);
   }
-  BalanceHor();
+  balanceHor();
 
   //третья фаза
-  SweepHor('r');
+  sweepHor('r');
 for (servoAngle[3]; servoAngle[3] >= servoCenterConst[3] - angTurn; --servoAngle[3]) {
 
     servoAngle[1] += 1;
@@ -245,15 +245,15 @@ for (servoAngle[3]; servoAngle[3] >= servoCenterConst[3] - angTurn; --servoAngle
     servoLegs[3].write(servoAngle[3]);
     delay(rate);
 }
-BalanceHor();
+balanceHor();
 
   //четвертая  фаза
-  SweepHor('l');
+  sweepHor('l');
   for (servoAngle[3]; servoAngle[3] <= servoCenterConst[3]; ++servoAngle[3]) {
     servoLegs[3].write(servoAngle[3]);
     delay(rate);
   }
-  BalanceHor();
+  balanceHor();
 }
 
 
