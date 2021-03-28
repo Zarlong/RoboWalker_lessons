@@ -12,7 +12,7 @@
 
 
 class WalkerLegs
-
+{
     public:
     //конструктор
     WalkerLegs();
@@ -36,8 +36,6 @@ class WalkerLegs
     int devAngHor;
     int angMinHor;
     int angMaxHor;
-
-~WalkerLegs();
 
 void begin(int first)
 
