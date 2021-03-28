@@ -12,7 +12,7 @@
 
 
 class WalkerLegs
-{
+
     public:
     //конструктор
     WalkerLegs();
