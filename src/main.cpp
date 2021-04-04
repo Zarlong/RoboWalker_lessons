@@ -1,14 +1,19 @@
 #include <Arduino.h>
-#include "WalkerLegs.h"
+#include <WalkerLegs.h>
 
-WalkerLegs hutOnClickenLegs(87, 89, 86, 82);
+WalkerLegs hutOnChickenLegs(87, 89, 86, 82);
 
-void setup() {
-  hutOnClickenLegs.begin();
-  hutOnClickenLegs.setDelays(10, 1500);
+void setup() 
+{
+  hutOnChickenLegs.begin(); // включаем монитор порта
+  hutOnChickenLegs.setDelays(10, 100);
 }
-
-void loop() {
-  
-  // put your main code here, to run repeatedly:
+void loop() 
+{
+hutOnChickenLegs.forwardSlow(5);
+hutOnChickenLegs.stopSlow();          //  1 функция - движения вперёд  
+//hutOnChickenLegs.courseDevRight(36);  
+//hutOnChickenLegs.stopSlow();              
+hutOnChickenLegs.turnRight(90);        //  2 функция - движения назад
+hutOnChickenLegs.stopSlow();             //  3 функция - остановка
 }

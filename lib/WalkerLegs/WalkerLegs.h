@@ -16,19 +16,22 @@ class WalkerLegs
     public:
     //конструктор
     WalkerLegs();
-    WalkerLegs(int a0, int a1, int a2, int a3, int a4);
+    WalkerLegs(int a0, int a1, int a2, int a3);
     //деструктор
     ~WalkerLegs();
 
-    void forwardSlow(int steps = 1) ;
-    void backwardSlow(int steps = 1) ;
+
+    void begin(int pin = 7);
+    void forwardSlow(int steps = 1); 
+    void backwardSlow(int steps = 1); 
     void stopSlow();
     void turnLeft(int angTurn = 36);
     void turnRight(int angTurn = 36);
     void courseDevLeft(int angTurn = 36);
     void courseDevRight(int angTurn = 36);
-
-    private:
+    void setDelays(int r = 10, int dT = 100);
+    
+     private:
     //члены класса
     int servos;
 
@@ -37,27 +40,29 @@ class WalkerLegs
     int angMinHor;
     int angMaxHor;
 
-void begin(int first)
-
     int angleVer;
     int devAngVer;
     int angMinVer;
     int angMaxVer;
 
-    const int servoCenterConst[6] = {87, 89, 86, 82};
+    int servoCenterConst[6];
     int servoAngle[6];
     Servo servoLegs[6];
-    int rate = 5;
-    int delayTime = 100;
+    int first;
+    int rate;
+    int delayTime;
     bool debug = true;
     char directionFlag = 's';
 
     //методы класса
-    void begin(int pin = 7);
+   
+
+    void setDeviation(int dAHor = 50, int dAVer = 20);
     void debugPhase(bool debugPhase);
     void sweepVer(char dirSweep);
     void balanceVer();
     void sweepHor(char dirSweep);
     void balanceHor();
 };
+
 #endif
